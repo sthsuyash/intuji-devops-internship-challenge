@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  web:
+    image: sthsuyash/php-hello-world:latest
+    ports:
+      - "8080:80"
