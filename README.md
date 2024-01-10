@@ -18,6 +18,8 @@ In this step, I created a Dockerfile for building the docker image of the above 
 
 In this step, I pushed the docker image to Docker Hub using the command `docker push sthsuyash/php-hello-world:latest`.
 
+This Dockerfile uses the official Nginx image as a base, sets the working directory, removes the default Nginx welcome page, and copies the PHP Hello World application files into the container. It also exposes port 80, which is the default port for HTTP traffic, and starts the Nginx server.
+
 ## 3. Create a docker-compose file
 
 In this task, I created a docker-compose file which uses the docker image created in the previous task and is saved in [docker-compose.yml](docker-compose.yml).
