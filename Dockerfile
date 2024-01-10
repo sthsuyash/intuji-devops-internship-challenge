@@ -1,13 +1,16 @@
 FROM nginx:latest
 
-COPY . /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
+
+# Copy only necessary files and directories
+COPY src/ /usr/share/nginx/html/src
+COPY tests/ /usr/share/nginx/html/tests
+COPY .gitignore .php_cs.dist composer.json composer.lock /usr/share/nginx/html/
+
+# Remove default Nginx welcome page
+RUN rm -rf ./*
 
 EXPOSE 80
 
-# set the working directory
-WORKDIR /usr/share/nginx/html
-
-# set the entrypoint
-ENTRYPOINT ["/usr/sbin/nginx"]
-
+# Start Nginx server when container starts
 CMD ["nginx", "-g", "daemon off;"]
